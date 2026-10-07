@@ -70,8 +70,35 @@ Details: `docs/controller-variants.md`
 
 Externe Referenzen und deren konkrete Bedeutung für das Projekt: `docs/sources.md`
 
-## Nächster Entwicklungsschritt
+## Geplante Erweiterungen / TODO
 
-Die funktionierende Funksteuerung soll in ESPHome integriert und über die ESPHome-Weboberfläche bedienbar gemacht werden.
+Die grundlegende Fernsteuerung der Heizung über das originale 433-MHz-Funkprotokoll ist umgesetzt.
 
-Später vorgesehen ist zusätzlich die Untersuchung des Kabel-/Datenbusses zwischen Mainboard und Display, um Statusinformationen des Heizgeräts auszulesen.
+Für die nächste Ausbaustufe sind folgende Erweiterungen geplant:
+
+- [ ] Raumtemperatursensor HTU31 integrieren
+- [ ] DS18B20 zur Messung der Warmlufttemperatur am Heizungsausgang integrieren
+- [ ] Temperaturwerte über die ESPHome-Weboberfläche anzeigen
+- [ ] Temperaturverlauf zur Erkennung des Heizbetriebs auswerten
+- [ ] Schnittstelle zwischen originalem LCD-Controller und Heizung untersuchen
+- [ ] Display-/Controller-Signale am ESP32 abgreifen
+- [ ] Betriebszustand der Heizung aus Temperatur- und Controllerdaten ableiten
+- [ ] Display-/Controller-Steuerung perspektivisch in die ESPHome-Steuerung integrieren
+
+### Vorgesehener Pinplan
+
+Der aktuelle Funkaufbau bleibt unverändert.
+
+| Funktion | ESP32-Pin |
+|---|---:|
+| Funkmodul GDO0 | GPIO 4 |
+| Funkmodul CSN | GPIO 5 |
+| Funkmodul SCK | GPIO 18 |
+| Funkmodul MISO | GPIO 19 |
+| Funkmodul MOSI | GPIO 23 |
+| HTU31 SDA | GPIO 21 |
+| HTU31 SCL | GPIO 22 |
+| DS18B20 Warmlufttemperatur | GPIO 25 |
+| Display-/Controller-Schnittstelle | GPIO 16 |
+
+> **Hinweis:** GPIO 21, 22, 25 und 16 sind für die geplanten Erweiterungen zunächst vorgesehen. Die tatsächliche Eignung und Verdrahtung wird vor der Umsetzung der jeweiligen Erweiterung geprüft.
