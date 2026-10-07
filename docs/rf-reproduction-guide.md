@@ -73,16 +73,7 @@ Danach prüfen:
 - mögliche Befehlsfelder
 - zusätzliche Prüfinformationen
 
-## 7. TX zunächst gegen einen zweiten Empfänger prüfen
-
-Bevor der Originalempfänger verwendet wird:
-
-- Funkmodul 1 als TX
-- Funkmodul 2 als RX
-
-Damit kann geprüft werden, ob der ESP32 tatsächlich die gewünschte Rohpulsfolge erzeugt.
-
-## 8. Originalsignal mit eigener Übertragung vergleichen
+## 7. Originalsignal mit eigener Übertragung vergleichen
 
 Die eigene TX-Aufnahme muss hinsichtlich
 
@@ -95,13 +86,13 @@ Die eigene TX-Aufnahme muss hinsichtlich
 
 mit der Originalaufnahme verglichen werden.
 
-## 9. Erst danach am Originalcontroller testen
+## 8. Erst danach am Originalcontroller testen
 
 Wenn die Rohdaten möglichst genau reproduziert werden, das Signal am Originalcontroller testen.
 
 Bei sicherheitsrelevanten Tests am Heizgerät besonders vorsichtig vorgehen.
 
-## 10. Erfolgreichen Stand sofort sichern
+## 9. Erfolgreichen Stand sofort sichern
 
 Sobald der Originalcontroller reproduzierbar reagiert:
 
@@ -111,7 +102,7 @@ Sobald der Originalcontroller reproduzierbar reagiert:
 4. Git-Commit erstellen
 5. erst danach die Integration in ESPHome beginnen
 
-## 11. Für eine zweite Steuerung
+## 10. Für eine zweite Steuerung
 
 Bei einer anderen Steuerung nicht automatisch die Werte dieses Projekts übernehmen.
 

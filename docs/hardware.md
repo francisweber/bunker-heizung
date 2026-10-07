@@ -63,36 +63,15 @@ SPI:
 
 GDO0 = GPIO 4.
 
-## 5. Funkmodul 2
+## 5. Verkabelung
 
-Ein zweites identisches Funkmodul wurde zeitweise für unabhängige RX-/TX-Tests verwendet.
-
-Verdrahtung:
-
-- GND → GND
-- VCC → 3,3 V
-- GDO0 → GPIO 27
-- CSN → GPIO 15
-- SCK → GPIO 18
-- MOSI → GPIO 23
-- MISO → GPIO 19
-- GDO2 → nicht angeschlossen
-
-Die SPI-Leitungen SCK, MOSI und MISO wurden gemeinsam verwendet. CSN und GDO0 waren getrennt.
-
-Mit beiden Modulen konnte die Funkstrecke unabhängig geprüft werden.
-
-## 6. Verkabelung
-
-Die Verdrahtung wurde durch mehrere Tests überprüft.
-
-Beide Funkmodule wurden vom ESP32 erkannt. Zusätzlich konnte ein vom ersten Funkmodul erzeugtes Rohsignal mit dem zweiten Funkmodul empfangen werden.
+Die Verdrahtung des aktuell verwendeten Funkmoduls wurde durch mehrere Tests überprüft.
 
 Für die weitere Entwicklung gilt daher:
 
 > Die Funkmodul-Verkabelung ist geprüft und wird nicht ohne neue gegenteilige Messung als Fehlerquelle angenommen.
 
-## 7. Originale Steuerung
+## 6. Originale Steuerung
 
 Das untersuchte System besteht aus:
 
@@ -102,7 +81,7 @@ Das untersuchte System besteht aus:
 
 Die Funkfernbedienung ist nicht mit der LCD-Steuereinheit identisch.
 
-## 8. Abgrenzung
+## 7. Abgrenzung
 
 Die später geplante Untersuchung des Kabel-/Datenbusses zwischen Mainboard und Display ist ein separates Reverse-Engineering-Thema.
 
