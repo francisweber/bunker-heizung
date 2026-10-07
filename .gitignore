@@ -1,0 +1,25 @@
+# PlatformIO
+.pio/
+.piolibdeps/
+
+# ESPHome
+.esphome/
+
+# PhpStorm / IntelliJ
+.idea/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# ESPHome secrets
+secrets.yaml
+
+# macOS
+.DS_Store
+
+# Build / temporary files
+*.bin
+*.elf
+*.map
