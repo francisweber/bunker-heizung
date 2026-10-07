@@ -2,6 +2,21 @@
 
 ESP32-basierte Fernsteuerung einer VEVOR-/China-Dieselheizung über die originale 433-MHz-Funkfernbedienung.
 
+## Weboberfläche
+
+Die Bunker-Heizung kann über die integrierte ESPHome-Weboberfläche bedient werden:
+
+**URL:**
+
+http://bunker-heizung.local
+
+Dort stehen die Funktionen:
+
+- Heizung EIN
+- Heizung AUS
+- Heizung PLUS
+- Heizung MINUS
+
 ## Aktueller Stand
 
 Die 433-MHz-Funksteuerung der untersuchten älteren Steuerung wurde erfolgreich reverse-engineered und mit einem ESP32 und einem RUIZHI CC1101 Funkmodul reproduziert.
