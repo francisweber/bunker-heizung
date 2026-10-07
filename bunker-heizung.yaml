@@ -3,11 +3,22 @@ esphome:
   friendly_name: Bunker Heizung
 
   includes:
-    - cc1101.h
+    - heater_rf.h
 
   libraries:
     - SPI
     - "SmartRC-CC1101-Driver-Lib"
+
+  on_boot:
+    priority: 800
+    then:
+      - lambda: |-
+          if (heater_rf_init()) {
+            ESP_LOGI("heater_rf", "Funkmodul 1: ERKANNT");
+            ESP_LOGI("heater_rf", "433 MHz TX bereit");
+          } else {
+            ESP_LOGE("heater_rf", "Funkmodul 1: FEHLER!");
+          }
 
 esp32:
   board: esp32dev
@@ -35,17 +46,39 @@ captive_portal:
 web_server:
   port: 80
 
-remote_transmitter:
-  - id: transmitter
-    pin:
-      number: GPIO4
-      allow_other_uses: true
-    carrier_duty_percent: 100%
+button:
+  - platform: template
+    name: "Heizung EIN"
+    id: heater_on
+    icon: "mdi:fire"
+    on_press:
+      - lambda: |-
+          ESP_LOGI("heater_rf", "Sende: ON");
+          heater_rf_on();
 
-remote_receiver:
-  - id: receiver
-    pin:
-      number: GPIO4
-      allow_other_uses: true
-    dump:
-      - raw
+  - platform: template
+    name: "Heizung AUS"
+    id: heater_off
+    icon: "mdi:stop"
+    on_press:
+      - lambda: |-
+          ESP_LOGI("heater_rf", "Sende: OFF");
+          heater_rf_off();
+
+  - platform: template
+    name: "Heizung PLUS"
+    id: heater_plus
+    icon: "mdi:plus"
+    on_press:
+      - lambda: |-
+          ESP_LOGI("heater_rf", "Sende: PLUS");
+          heater_rf_plus();
+
+  - platform: template
+    name: "Heizung MINUS"
+    id: heater_minus
+    icon: "mdi:minus"
+    on_press:
+      - lambda: |-
+          ESP_LOGI("heater_rf", "Sende: MINUS");
+          heater_rf_minus();
